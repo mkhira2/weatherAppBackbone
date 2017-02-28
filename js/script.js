@@ -1,3 +1,5 @@
+
+
 //--------------------------------------------------
 //GLOBAL VARIABLES
 //--------------------------------------------------
@@ -9,32 +11,6 @@ var dailyNode = document.querySelector('.daily')
 var hourlyNode = document.querySelector('.hourly')
 var searchInput = document.querySelector(".search")
 var searchResults = document.querySelector(".searchResults")
-
-//--------------------------------------------------
-// MOTHERSHIP FUNCTIONS
-//--------------------------------------------------
-
-function controller(currentObj) { // where everything starts
-       var hashStr = location.hash.substr(1), // make location.hash an array, beginning after #
-           hashParts = hashStr.split('/') // separate array by /
-           latitude = hashParts[0] // isolate latitude
-           longitude = hashParts[1] // isolate longitude
-           viewType = hashParts[2] // isolate current/daily/hourly
-       var promise = $.getJSON(weatherUrl + '/' + latitude + ',' + longitude + '?callback=?')
-       if (viewType === 'current') {
-           promise.then(handleCurrent)  
-       }
-       else if (viewType === 'hourly') {
-           promise.then(handleHourly)
-       }
-       else if (viewType === 'daily') {
-            promise.then(handleDaily)
-           
-       }
-       else {
-           navigator.geolocation.getCurrentPosition(handleCoords)
-       }
-}
 
 function handleCoords(coordsObj) { // gets coords on page load (from 'else' in controller)
        var lat = coordsObj.coords.latitude
@@ -155,8 +131,33 @@ function handleCityCoords(apiResponse) { // get coords of searched city
 }
 
 //--------------------------------------------------
-//LET'S GET THIS PARTY STARTED
+//LOOK OUT! HERE COMES BACKBONE!
 //--------------------------------------------------
 
-window.addEventListener('hashchange', controller)
-controller()
+var WeatherRouter = Backbone.Router.extend({
+  routes: {
+    ":lat/:lng/current": "showCurrentPage",
+    ":lat/:lng/hourly": "showHourlyPage",
+    ":lat/:lng/daily": "showDailyPage",
+    "*default": "redirectToCurrent"
+  },
+  redirectToCurrent: function() {
+    navigator.geolocation.getCurrentPosition(handleCoords)
+  },
+  showCurrentPage: function(lat, lng) {
+    var promise = $.getJSON(weatherUrl + '/' + lat + ',' + lng + '?callback=?')
+    promise.then(handleCurrent)
+  },
+  showHourlyPage: function(lat, lng) {
+    var promise = $.getJSON(weatherUrl + '/' + lat + ',' + lng + '?callback=?')
+    promise.then(handleHourly)
+  },
+  showDailyPage: function(lat, lng) {
+    var promise = $.getJSON(weatherUrl + '/' + lat + ',' + lng + '?callback=?')
+    promise.then(handleDaily)
+  }
+})
+
+var rtr = new WeatherRouter()
+
+Backbone.history.start()
