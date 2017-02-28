@@ -1,10 +1,29 @@
 <!DOCTYPE html>
-	<html>
-	<head>
-		<title></title>
-		<link rel="stylesheet" type="text/css" href="styles/style.css">
-	</head>
-	<body>
-		<script type="text/javascript" src="js/script.js"></script>
-	</body>
-	</html>
+<html>
+
+<head>
+    <title></title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+
+<body>
+    <h1 class='title'>Weather Gone Wild</h1>
+    <nav class="navBar">
+        <button class="current" title="current weather">Current</button>
+        <button class="hourly" title="hourly weather">Hourly</button>
+        <button class="daily" title="daily weather">Daily</button>
+    </nav>
+    <div class="search">
+        <input class="search" type="text" placeholder="Search weather in other cities" title="city search">
+     </div>
+     <div class="searchResults"></div>
+    <div class="weatherContainer"></div>
+    <img src="https://s-media-cache-ak0.pinimg.com/originals/0e/f3/bb/0ef3bb66d9216fffcea9022628f7bb26.gif" class="loadingGif">
+    <script src='js/moment-2.17.1.min.js'></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+</body>
+
+</html>

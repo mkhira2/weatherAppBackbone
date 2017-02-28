@@ -1,0 +1,182 @@
+/*--------------------------------------------------
+ALWAYS INCLUDE
+--------------------------------------------------*/
+
+* {
+    box-sizing: border-box;
+    font-family: Helvetica;
+}
+
+html {
+    font-size: 20px;
+}
+
+body {
+    /*background: url('https://spaceplace.nasa.gov/review/blue-sky/bluesky.en.png');*/
+    background: url('https://wallpaperscraft.com/image/lightning_field_road_blackness_bad_weather_sky_peal_elements_60125_1920x1080.jpg');
+    background-repeat:repeat-x;
+    background-attachment:fixed;
+    background-position: center;
+    height:800px;
+    margin:0;
+    text-align: center;
+    padding-top: 25px;
+}
+
+/*--------------------------------------------------
+BASIC LAYOUT
+--------------------------------------------------*/
+
+.weatherContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navBar {
+    display: flex;
+    width: 75%;
+    margin: 0 auto;
+    padding-top: 50px;
+    padding-bottom: 25px;
+}
+
+.infoContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.loadingGif {
+    width: 20%;
+    border-radius: 10%;
+    opacity: .9;
+
+}
+
+.fa {
+    color: yellow;
+}
+
+.fa-map-marker {
+    color: orange;
+}
+
+.box {
+    background: lightyellow;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 2px 2px 2px 2px black;
+    opacity: .9;
+    width: 35%;
+}
+
+/*--------------------------------------------------
+BUTTON STYLING
+--------------------------------------------------*/
+
+button {
+    padding: 10px;
+    background: lightsteelblue;
+    color: white;
+    font-weight: bold;
+    text-shadow: 1px 1px black;
+    box-shadow: 1px 1px 1px 1px black;
+    font-family: Raleway;
+    width: 50%;
+    font-size: 1.5rem;
+    margin: -50px 50px 0 50px;
+    opacity: .9;
+}
+
+button:active {
+    background: lavender;
+    color: lightsteelblue;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+/*--------------------------------------------------
+FONT STYLING AND SPACING
+--------------------------------------------------*/
+
+p, li {
+    color: limegreen;
+    list-style: none;
+}
+
+li {
+    line-height: 30px
+}
+
+ul {
+    margin-top: 0px;
+}
+
+h1, h2, h3 {
+    font-weight: bold;
+    font-family: Raleway;
+}
+
+h1 {
+    font-size: 3rem;
+    text-shadow: 3px 3px black;
+    color: white;
+}
+
+h2 {
+    margin-bottom: 0px;
+    color: white;
+}
+
+h3 {
+    color: darkgreen;
+}
+
+.summary {
+    color: seagreen;
+}
+
+.time {
+    margin: -20px;
+}
+
+.searchResults {
+    color: orange;
+    font-weight: bold;
+    font-size: 24px;
+    padding-top: 15px;
+}
+
+/*--------------------------------------------------
+SEARCH BAR
+--------------------------------------------------*/
+
+.search {
+    font-size: 16px;
+    text-align: center;
+    margin: 15px 0;
+    opacity: .9;
+    height: 30px;
+    border: none;
+}
+
+input {
+    width: 20%
+}
+
+/*--------------------------------------------------
+MEDIA QUERIES
+--------------------------------------------------*/
+
+@media (max-width: 700px) {
+    .navBar {
+        display: block;
+    }
+
+    button {
+        margin: 2% 0;
+    }
+}
