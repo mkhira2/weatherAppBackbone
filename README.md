@@ -10,7 +10,8 @@ Enjoy!
 
 ## Installation
 
-```git clone https://github.com/mkhira2/weatherAppBackbone.git
+```
+git clone https://github.com/mkhira2/weatherAppBackbone.git
 cd weatherAppBackbone
 open index.html
 ```
